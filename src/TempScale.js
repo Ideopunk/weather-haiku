@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 class Tempscale extends Component {
 	render() {
-		return <div>Cels</div>;
+		const { tempSwitch, units } = this.props;
+		return <div onClick={tempSwitch}>{units}</div>;
 	}
 }
 

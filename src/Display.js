@@ -3,16 +3,19 @@ import TempScale from "./TempScale";
 
 class Display extends Component {
 	render() {
-    	// const {weatherData} = this.props
-
+		const { weatherData, tempSwitch, units } = this.props;
+		console.log(weatherData);
+		console.log("Display.js");
+		console.log(Object.keys(weatherData));
 		return (
 			<div>
 				<p>Place Name</p>
-				<p>Temperature</p>
+				<p>Temperature!</p>
+				<p>{weatherData.name}</p>
 				<div className="data">
 					<p>weatherData</p>
 				</div>
-				<TempScale />
+				<TempScale units={units} tempSwitch={tempSwitch} />
 			</div>
 		);
 	}
