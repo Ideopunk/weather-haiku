@@ -14,7 +14,7 @@ class Haiku extends Component {
                 {haikulines}
                 <p>{haiku.author}</p>
                 <p>{haiku.date}</p>
-                <p>Via the <a href="https://www.tempslibres.org/tl/en/dbhk00.html">tempslibres haiku database</a></p>
+                <p><i>via the <a href="https://www.tempslibres.org/tl/en/dbhk00.html">tempslibres haiku database</a>.</i></p>
             </div>
         )
     }

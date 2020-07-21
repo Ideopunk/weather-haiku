@@ -25,12 +25,12 @@ class App extends Component {
 
 	handleSubmit = async (location) => {
 		// get the value from the object
-		let {city, country, lat, long} = location
-		console.log(city, country, lat, long)
+		let { city, country, lat, long } = location;
+		console.log(city, country, lat, long);
 
 		location = Object.values(location);
 
-		let response
+		let response;
 		if (lat && long) {
 			response = await fetch(
 				`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${this.state.units}&appid=${API_KEY}`
@@ -42,9 +42,9 @@ class App extends Component {
 		} else {
 			response = await fetch(
 				`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${this.state.units}&appid=${API_KEY}`
-			)
+			);
 		}
-		
+
 		let data = await response.json();
 		this.setState({
 			weatherData: {
@@ -58,61 +58,7 @@ class App extends Component {
 		});
 
 		// haiku stuff
-		let haikukey = data.weather[0].main;
-		let haikusubjectlist = HAIKU_SUBJECTS[haikukey];
-		let haikusubject = haikusubjectlist[Math.floor(Math.random() * haikusubjectlist.length)]
-		let webpage;
-
-		try {
-			let haikuresponse = await fetch(
-				`https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=${haikusubject}&lg=e`,
-				{
-					mode: "cors",
-				}
-			);
-			webpage = await haikuresponse.text();
-			
-			// test to see what's going on when this fails
-			console.log('webpage')
-			console.log(webpage)
-
-		} catch (error) {
-			console.log(`P sure we didn't get the haiku`);
-			console.log(error)
-		}
-
-		let re = /<div class.*?<\/div>/gs;
-		let haikuArray = webpage.match(re);
-		let len = haikuArray.length;
-		let singleHaiku = haikuArray[Math.floor(Math.random() * len)];
-
-		// pull out the haiku data , snag the haiku's text.
-		let domparser = new DOMParser();
-		let haikudom = domparser.parseFromString(singleHaiku, "text/html");
-		let haikutext = haikudom.querySelector(".haiku");
-		haikutext = haikutext.innerHTML.split("<br>");
-
-		// reduce length
-		if (haikutext.length > 3) {
-			haikutext.splice(3);
-		}
-
-		// snag the author and date
-		let haikumetadata = haikudom.querySelector(".dbhktlref");
-		haikumetadata = haikumetadata.textContent;
-		let haikuauthor = haikumetadata.match(/^.*(?=,)/);
-		let haikudate = haikumetadata.replace(/(.*cco )(.*)/, "$2");
-
-		let { weatherData, units } = this.state;
-		this.setState({
-			weatherData: weatherData,
-			units: units,
-			haiku: {
-				text: haikutext,
-				author: haikuauthor,
-				date: haikudate,
-			},
-		});
+		this.getHaiku(data.weather[0].main);
 	};
 
 	tempSwitch = () => {
@@ -139,10 +85,65 @@ class App extends Component {
 		navigator.geolocation.getCurrentPosition((position) => {
 			let coords = {
 				lat: position.coords.latitude,
-				long: position.coords.longitude
-			}
-			this.handleSubmit(coords)
-		})
+				long: position.coords.longitude,
+			};
+			this.handleSubmit(coords);
+		});
+	};
+
+	async getHaiku(haikukey) {
+		let haikusubjectlist = HAIKU_SUBJECTS[haikukey];
+		let haikusubject =
+			haikusubjectlist[
+				Math.floor(Math.random() * haikusubjectlist.length)
+			];
+
+		let webpage;
+		try {
+			let haikuresponse = await fetch(
+				`https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=${haikusubject}&lg=e`,
+				{
+					mode: "cors",
+				}
+			);
+			webpage = await haikuresponse.text();
+		} catch (error) {
+			console.log(`P sure we didn't get the haiku`);
+			console.log(error);
+		}
+
+		let re = /<div class.*?<\/div>/gs;
+		let haikuArray = webpage.match(re);
+		let len = haikuArray.length;
+		let singleHaiku = haikuArray[Math.floor(Math.random() * len)];
+
+		// pull out the haiku data, snag the haiku's text.
+		let domparser = new DOMParser();
+		let haikudom = domparser.parseFromString(singleHaiku, "text/html");
+		let haikutext = haikudom.querySelector(".haiku");
+		haikutext = haikutext.innerHTML.split("<br>");
+
+		// reduce length
+		if (haikutext.length > 3) {
+			haikutext.splice(3);
+		}
+
+		// snag the author and date
+		let haikumetadata = haikudom.querySelector(".dbhktlref");
+		haikumetadata = haikumetadata.textContent;
+		let haikuauthor = haikumetadata.match(/^.*(?=,)/);
+		let haikudate = haikumetadata.replace(/(.*cco )(.*)/, "$2");
+
+		let { weatherData, units } = this.state;
+		this.setState({
+			weatherData: weatherData,
+			units: units,
+			haiku: {
+				text: haikutext,
+				author: haikuauthor,
+				date: haikudate,
+			},
+		});
 	}
 
 	render() {
@@ -151,7 +152,11 @@ class App extends Component {
 			<div className="App">
 				<h1>Yooo!</h1>
 				<Searchbar handleSubmit={this.handleSubmit} />
-				<input type="button" onClick={this.getUserLocation} value="My Location" />
+				<input
+					type="button"
+					onClick={this.getUserLocation}
+					value="My Location"
+				/>
 				<Display
 					tempSwitch={this.tempSwitch}
 					units={units}
