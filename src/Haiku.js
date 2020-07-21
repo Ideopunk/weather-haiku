@@ -6,8 +6,8 @@ class Haiku extends Component {
         console.log(typeof(haiku))
         console.log(haiku.text)
         console.log(Array.isArray((haiku.text)))
-        let haikulines = haiku.text.map((line) => 
-            <p>{line}</p>    
+        let haikulines = haiku.text.map((line, index) => 
+            <p key={index}>{line}</p>    
         )
         return (
             <div id='haikucontainer'>

@@ -1,0 +1,17 @@
+{
+    "Thunderstorm": ["thunderstorm", "thunder", "lightning", "storm"],
+    "Drizzle": ["drizzle"],
+    "Rain": ["rain", "downpour"],
+    "Snow": ["snow", "winter", "blizzard"],
+    "Mist": ["mist"],
+    "Smoke": ["wildfire"],
+    "Haze": ["haze"],
+    "Dust": ["dust"],
+    "Fog": ["fog"],
+    "Sand": ["sand"],
+    "Ash": ["ash"],
+    "Squall": [ ], 
+    "Tornado": ["tornado"],
+    "Clear": ["breeze", "sun"],
+    "Clouds": ["cloud"]
+}
