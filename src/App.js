@@ -44,9 +44,8 @@ class App extends Component {
 		});
 
 		// haiku stuff
-		let haikukey = data.weather[0].main
-		let haikusubject = HAIKU_SUBJECTS[haikukey]
-
+		let haikukey = data.weather[0].main;
+		let haikusubject = HAIKU_SUBJECTS[haikukey];
 
 		let haikuresponse = await fetch(
 			`https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=${haikusubject}&lg=e`,
@@ -62,13 +61,19 @@ class App extends Component {
 
 		let domparser = new DOMParser();
 		let haikudom = domparser.parseFromString(singleHaiku, "text/html");
+
+		// snag the haiku
 		let haikutext = haikudom.querySelector(".haiku");
 		console.log(typeof haikutext.textContent);
 		haikutext = haikutext.innerHTML.split("<br>");
 		console.log("haikutext");
 		console.log(haikutext);
-		// let haikuauthor =
 
+		// snag the author and date
+		let haikumetadata = haikudom.querySelector(".dbhktlref");
+		haikumetadata = haikumetadata.textContent;
+		let haikuauthor = haikumetadata.match(/^.*(?=,)/);
+		let haikudate = haikumetadata.replace(/(.*cco )(.*)/, '$2')
 
 		let { weatherData, units } = this.state;
 		this.setState({
@@ -76,6 +81,8 @@ class App extends Component {
 			units: units,
 			haiku: {
 				text: haikutext,
+				author: haikuauthor,
+				date: haikudate
 			},
 		});
 	};
