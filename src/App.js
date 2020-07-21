@@ -46,19 +46,25 @@ class App extends Component {
 		// haiku stuff
 		let haikukey = data.weather[0].main;
 		let haikusubject = HAIKU_SUBJECTS[haikukey];
+		let webpage;
 
-		let haikuresponse = await fetch(
-			`https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=${haikusubject}&lg=e`,
-			{
-				mode: "cors",
-			}
-		);
-		let webpage = await haikuresponse.text();
+		try {
+			let haikuresponse = await fetch(
+				`https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=${haikusubject}&lg=e`,
+				{
+					mode: "cors",
+				}
+			);
+			webpage = await haikuresponse.text();
+		} catch (error) {
+			console.log(`P sure we didn't get the haiku`);
+			console.log(error)
+		}
+
 		let re = /<div class.*?<\/div>/gs;
 		let haikuArray = webpage.match(re);
 		let len = haikuArray.length;
 		let singleHaiku = haikuArray[Math.floor(Math.random() * len)];
-
 
 		// pull out the haiku data , snag the haiku's text.
 		let domparser = new DOMParser();
@@ -68,15 +74,14 @@ class App extends Component {
 
 		// reduce length
 		if (haikutext.length > 3) {
-			haikutext.splice(3)
+			haikutext.splice(3);
 		}
-
 
 		// snag the author and date
 		let haikumetadata = haikudom.querySelector(".dbhktlref");
 		haikumetadata = haikumetadata.textContent;
 		let haikuauthor = haikumetadata.match(/^.*(?=,)/);
-		let haikudate = haikumetadata.replace(/(.*cco )(.*)/, '$2')
+		let haikudate = haikumetadata.replace(/(.*cco )(.*)/, "$2");
 
 		let { weatherData, units } = this.state;
 		this.setState({
@@ -85,7 +90,7 @@ class App extends Component {
 			haiku: {
 				text: haikutext,
 				author: haikuauthor,
-				date: haikudate
+				date: haikudate,
 			},
 		});
 	};
