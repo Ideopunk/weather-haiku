@@ -150,19 +150,20 @@ class App extends Component {
 		const { weatherData, units, haiku } = this.state;
 		return (
 			<div className="App">
-				<h1>Yooo!</h1>
 				<Searchbar handleSubmit={this.handleSubmit} />
 				<input
 					type="button"
 					onClick={this.getUserLocation}
 					value="My Location"
 				/>
+				<div id='displaycontainer'>
 				<Display
 					tempSwitch={this.tempSwitch}
 					units={units}
 					weatherData={weatherData}
 				/>
 				<Haiku haiku={haiku} />
+				</div>
 			</div>
 		);
 	}

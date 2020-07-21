@@ -1,0 +1,40 @@
+html {
+	height: 100%;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+	height: 100%;
+}
+
+p,
+input {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#root {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.App {
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 12px;
+}
+
+#displaycontainer {
+	display: flex;
+	border-top: 1px solid black;
+    margin-top: 10px;
+    /* justify-content: space-evenly; */
+}
+
+.contentcontainer {
+    width: 50%;
+}
+

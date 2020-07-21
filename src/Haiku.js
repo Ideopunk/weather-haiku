@@ -10,10 +10,13 @@ class Haiku extends Component {
             <p key={index}>{line}</p>    
         )
         return (
-            <div id='haikucontainer'>
-                {haikulines}
-                <p>{haiku.author}</p>
-                <p>{haiku.date}</p>
+            <div class='contentcontainer' id='haikucontainer'>
+                <div id='haikutext'>
+                    {haikulines}
+                </div>
+                <p id='haikuauthor'>{haiku.author}</p>
+                <p id='haikudate'>{haiku.date}</p>
+                
                 <p><i>via the <a href="https://www.tempslibres.org/tl/en/dbhk00.html">tempslibres haiku database</a>.</i></p>
             </div>
         )

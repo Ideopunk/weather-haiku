@@ -6,7 +6,7 @@ class Display extends Component {
 		const { weatherData, tempSwitch, units } = this.props;
 		let roundedtemp = +Number(weatherData.temp).toFixed(2)
 		return (
-			<div>
+			<div class='contentcontainer' id='weathercontainer'>
 				<p>{weatherData.name}</p>
 				<p>{weatherData.main}</p>
 				<div className="data">
