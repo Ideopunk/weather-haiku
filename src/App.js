@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { API_KEY } from "./keys.json";
+import HAIKU_SUBJECTS from "./haikusubjectkeys.json";
 import Searchbar from "./Searchbar";
 import Display from "./Display";
 import Haiku from "./Haiku";
@@ -17,9 +18,9 @@ class App extends Component {
 		units: "metric",
 		haiku: {
 			text: [],
-			author: "", 
+			author: "",
 			date: "",
-		}
+		},
 	};
 
 	handleSubmit = async (city) => {
@@ -43,8 +44,12 @@ class App extends Component {
 		});
 
 		// haiku stuff
+		let haikukey = data.weather[0].main
+		let haikusubject = HAIKU_SUBJECTS[haikukey]
+
+
 		let haikuresponse = await fetch(
-			"https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=cloud&lg=e",
+			`https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=${haikusubject}&lg=e`,
 			{
 				mode: "cors",
 			}
@@ -55,23 +60,23 @@ class App extends Component {
 		let len = haikuArray.length;
 		let singleHaiku = haikuArray[Math.floor(Math.random() * len)];
 
-		let domparser = new DOMParser()
-		let haikudom = domparser.parseFromString(singleHaiku, "text/html")
-		let haikutext = haikudom.querySelector('.haiku')
-		console.log(typeof(haikutext.textContent))
-		haikutext = haikutext.innerHTML.split('<br>')
-		console.log("haikutext")
-		console.log(haikutext)
-		// let haikuauthor = 
+		let domparser = new DOMParser();
+		let haikudom = domparser.parseFromString(singleHaiku, "text/html");
+		let haikutext = haikudom.querySelector(".haiku");
+		console.log(typeof haikutext.textContent);
+		haikutext = haikutext.innerHTML.split("<br>");
+		console.log("haikutext");
+		console.log(haikutext);
+		// let haikuauthor =
 
 
-		let {weatherData, units } = this.state
+		let { weatherData, units } = this.state;
 		this.setState({
 			weatherData: weatherData,
 			units: units,
 			haiku: {
 				text: haikutext,
-			}
+			},
 		});
 	};
 
