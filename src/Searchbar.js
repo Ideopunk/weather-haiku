@@ -3,15 +3,16 @@ import React, { Component } from "react";
 class Searchbar extends Component {
 	initialState = {
 		city: "",
+		country: "",
 	};
 
 	state = this.initialState;
 
 	handleChange = (event) => {
-		const { value } = event.target;
+		const { name, value } = event.target;
 		console.log(value)
 		this.setState({
-			city: value,
+			[name]: value,
 		});
 	};
 
@@ -21,15 +22,24 @@ class Searchbar extends Component {
 	};
 
 	render() {
-		const { city } = this.state
+		const { city, country } = this.state
+
 		return (
 			<form>
 				<input
 					type="search"
 					id="weather-api-search"
-					name="weather-api-search"
+					name="city"
 					value={city}
 					required
+					onChange={this.handleChange}
+				/>
+				<input
+					type="search"
+					id="country"
+					name="country"
+					value={country}
+					maxLength="2"
 					onChange={this.handleChange}
 				/>
 				<input

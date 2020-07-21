@@ -23,14 +23,28 @@ class App extends Component {
 		},
 	};
 
-	handleSubmit = async (city) => {
+	handleSubmit = async (location) => {
 		// get the value from the object
-		city = Object.values(city);
-		console.log("handlesubmit");
-		console.log(this.state.units);
-		let response = await fetch(
-			`https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=${this.state.units}&appid=${API_KEY}` // the https is necessary
-		);
+		let {city, country, lat, long} = location
+		console.log(city, country, lat, long)
+
+		location = Object.values(location);
+
+		let response
+		if (lat && long) {
+			response = await fetch(
+				`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${this.state.units}&appid=${API_KEY}`
+			);
+		} else if (!country) {
+			response = await fetch(
+				`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${this.state.units}&appid=${API_KEY}`
+			);
+		} else {
+			response = await fetch(
+				`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${this.state.units}&appid=${API_KEY}`
+			)
+		}
+		
 		let data = await response.json();
 		this.setState({
 			weatherData: {
@@ -45,7 +59,8 @@ class App extends Component {
 
 		// haiku stuff
 		let haikukey = data.weather[0].main;
-		let haikusubject = HAIKU_SUBJECTS[haikukey];
+		let haikusubjectlist = HAIKU_SUBJECTS[haikukey];
+		let haikusubject = haikusubjectlist[Math.floor(Math.random() * haikusubjectlist.length)]
 		let webpage;
 
 		try {
@@ -56,6 +71,11 @@ class App extends Component {
 				}
 			);
 			webpage = await haikuresponse.text();
+			
+			// test to see what's going on when this fails
+			console.log('webpage')
+			console.log(webpage)
+
 		} catch (error) {
 			console.log(`P sure we didn't get the haiku`);
 			console.log(error)
@@ -115,13 +135,23 @@ class App extends Component {
 		console.log("tempswitched");
 	};
 
+	getUserLocation = () => {
+		navigator.geolocation.getCurrentPosition((position) => {
+			let coords = {
+				lat: Math.round(position.coords.latitude),
+				long: Math.round(position.coords.longitude)
+			}
+			this.handleSubmit(coords)
+		})
+	}
+
 	render() {
 		const { weatherData, units, haiku } = this.state;
-		console.log(this.state);
 		return (
 			<div className="App">
 				<h1>Yooo!</h1>
 				<Searchbar handleSubmit={this.handleSubmit} />
+				<input type="button" onClick={this.getUserLocation} value="My Location" />
 				<Display
 					tempSwitch={this.tempSwitch}
 					units={units}
