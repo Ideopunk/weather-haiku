@@ -59,15 +59,18 @@ class App extends Component {
 		let len = haikuArray.length;
 		let singleHaiku = haikuArray[Math.floor(Math.random() * len)];
 
+
+		// pull out the haiku data , snag the haiku's text.
 		let domparser = new DOMParser();
 		let haikudom = domparser.parseFromString(singleHaiku, "text/html");
-
-		// snag the haiku
 		let haikutext = haikudom.querySelector(".haiku");
-		console.log(typeof haikutext.textContent);
 		haikutext = haikutext.innerHTML.split("<br>");
-		console.log("haikutext");
-		console.log(haikutext);
+
+		// reduce length
+		if (haikutext.length > 3) {
+			haikutext.splice(3)
+		}
+
 
 		// snag the author and date
 		let haikumetadata = haikudom.querySelector(".dbhktlref");
