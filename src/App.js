@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { API_KEY } from "./keys.json";
 import Searchbar from "./Searchbar";
 import Display from "./Display";
+import Haiku from "./Haiku";
 
 class App extends Component {
 	state = {
@@ -14,6 +15,11 @@ class App extends Component {
 			windspeed: "",
 		},
 		units: "metric",
+		haiku: {
+			text: [],
+			author: "", 
+			date: "",
+		}
 	};
 
 	handleSubmit = async (city) => {
@@ -49,9 +55,24 @@ class App extends Component {
 		let len = haikuArray.length;
 		let singleHaiku = haikuArray[Math.floor(Math.random() * len)];
 
-		console.log(webpage);
-		console.log(haikuArray);
-		console.log(singleHaiku);
+		let domparser = new DOMParser()
+		let haikudom = domparser.parseFromString(singleHaiku, "text/html")
+		let haikutext = haikudom.querySelector('.haiku')
+		console.log(typeof(haikutext.textContent))
+		haikutext = haikutext.innerHTML.split('<br>')
+		console.log("haikutext")
+		console.log(haikutext)
+		// let haikuauthor = 
+
+
+		let {weatherData, units } = this.state
+		this.setState({
+			weatherData: weatherData,
+			units: units,
+			haiku: {
+				text: haikutext,
+			}
+		});
 	};
 
 	tempSwitch = () => {
@@ -75,7 +96,7 @@ class App extends Component {
 	};
 
 	render() {
-		const { weatherData, units } = this.state;
+		const { weatherData, units, haiku } = this.state;
 		console.log(this.state);
 		return (
 			<div className="App">
@@ -86,6 +107,7 @@ class App extends Component {
 					units={units}
 					weatherData={weatherData}
 				/>
+				<Haiku haiku={haiku} />
 			</div>
 		);
 	}
