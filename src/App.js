@@ -37,23 +37,38 @@ class App extends Component {
 		});
 
 		// haiku stuff
+		let haikuresponse = await fetch(
+			"https://cors-anywhere.herokuapp.com/https://www.tempslibres.org/tl/tlphp/dbhk02.php?mot=cloud&lg=e",
+			{
+				mode: "cors",
+			}
+		);
+		let webpage = await haikuresponse.text();
+		let re = /<div class.*?<\/div>/gs;
+		let haikuArray = webpage.match(re);
+		let len = haikuArray.length;
+		let singleHaiku = haikuArray[Math.floor(Math.random() * len)];
+
+		console.log(webpage);
+		console.log(haikuArray);
+		console.log(singleHaiku);
 	};
 
 	tempSwitch = () => {
 		let { weatherData, units } = this.state;
 		if (units === "metric") {
-			let newTemp = weatherData.temp * 9 / 5 + 32;
-			weatherData.temp = newTemp
+			let newTemp = (weatherData.temp * 9) / 5 + 32;
+			weatherData.temp = newTemp;
 			this.setState({
 				units: "imperial",
-				weatherData: weatherData
+				weatherData: weatherData,
 			});
 		} else {
-			let newTemp = (weatherData.temp - 32) * 5 / 9;
-			weatherData.temp = newTemp
+			let newTemp = ((weatherData.temp - 32) * 5) / 9;
+			weatherData.temp = newTemp;
 			this.setState({
 				units: "metric",
-				weatherData: weatherData
+				weatherData: weatherData,
 			});
 		}
 		console.log("tempswitched");
