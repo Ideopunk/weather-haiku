@@ -138,8 +138,8 @@ class App extends Component {
 	getUserLocation = () => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			let coords = {
-				lat: Math.round(position.coords.latitude),
-				long: Math.round(position.coords.longitude)
+				lat: position.coords.latitude,
+				long: position.coords.longitude
 			}
 			this.handleSubmit(coords)
 		})
