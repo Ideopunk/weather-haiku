@@ -12,57 +12,65 @@ class App extends Component {
 			temp: "",
 			humidity: "",
 			windspeed: "",
-        },
-        units: "metric"
+		},
+		units: "metric",
 	};
 
-	async getWeatherData(location) {
-        console.log('getweatherdata')
+	handleSubmit = async (city) => {
+		// get the value from the object
+		city = Object.values(city);
+		console.log("handlesubmit");
+		console.log(this.state.units);
 		let response = await fetch(
-			`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${this.state.units}&appid=${API_KEY}` // the https is necessary
+			`https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=${this.state.units}&appid=${API_KEY}` // the https is necessary
 		);
 		let data = await response.json();
-		console.log(data);
-		let reducedData = data;
-		return reducedData;
-	}
-
-
-	handleSubmit = (city) => {
-        console.log(this)
 		this.setState({
-			weatherData: this.getWeatherData(city),
+			weatherData: {
+				name: data.name,
+				main: data.weather[0].main,
+				description: data.weather[0].description,
+				temp: data.main.temp,
+				humidity: data.main.humidity,
+				windspeed: data.wind.speed,
+			},
 		});
-	}
 
-    tempSwitch = () => {
-        console.log('tempswitch')
-        console.log(this)
-        let {units} = this.state
-        if (units === "metric") {
-            this.setState({
-                units: "imperial"
-            })
-        } else {
-            this.setState({
-                units: "metric"
-            })
-        }
-        console.log(units)
+		// haiku stuff
+	};
 
-    }
+	tempSwitch = () => {
+		let { weatherData, units } = this.state;
+		if (units === "metric") {
+			let newTemp = weatherData.temp * 9 / 5 + 32;
+			weatherData.temp = newTemp
+			this.setState({
+				units: "imperial",
+				weatherData: weatherData
+			});
+		} else {
+			let newTemp = (weatherData.temp - 32) * 5 / 9;
+			weatherData.temp = newTemp
+			this.setState({
+				units: "metric",
+				weatherData: weatherData
+			});
+		}
+		console.log("tempswitched");
+	};
 
 	render() {
-		console.log(API_KEY);
-		console.log(this.state);
-		console.log("APP.js");
 		const { weatherData, units } = this.state;
-
+		console.log(this.state);
 		return (
 			<div className="App">
 				<h1>Yooo!</h1>
 				<Searchbar handleSubmit={this.handleSubmit} />
-				<Display tempSwitch={this.tempSwitch} units={units} weatherData={weatherData} />
+				<Display
+					tempSwitch={this.tempSwitch}
+					units={units}
+					weatherData={weatherData}
+				/>
 			</div>
 		);
 	}

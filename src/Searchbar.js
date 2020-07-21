@@ -1,37 +1,42 @@
 import React, { Component } from "react";
 
 class Searchbar extends Component {
-    initialState = {
-        city: ''
-    }
-    
-    state = this.initialState;
+	initialState = {
+		city: "",
+	};
+
+	state = this.initialState;
 
 	handleChange = (event) => {
-        console.log('handlechange')
-		const {value} = event.target;
+		const { value } = event.target;
+		console.log(value)
 		this.setState({
 			city: value,
 		});
 	};
 
 	submitInput = () => {
-        console.log('submitinput')
-        console.log(this.state)
-        this.props.handleSubmit(this.state);
-		this.setState({city: ''});
+		this.props.handleSubmit(this.state);
+		this.setState(this.initialState);
 	};
 
 	render() {
+		const { city } = this.state
 		return (
 			<form>
 				<input
 					type="search"
 					id="weather-api-search"
 					name="weather-api-search"
+					value={city}
+					required
 					onChange={this.handleChange}
 				/>
-				<input type="button" value='Submit' onClick={this.submitInput} />
+				<input
+					type="button"
+					value="Submit"
+					onClick={this.submitInput}
+				/>
 			</form>
 		);
 	}

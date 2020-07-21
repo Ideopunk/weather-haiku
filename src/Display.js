@@ -4,16 +4,16 @@ import TempScale from "./TempScale";
 class Display extends Component {
 	render() {
 		const { weatherData, tempSwitch, units } = this.props;
-		console.log(weatherData);
-		console.log("Display.js");
-		console.log(Object.keys(weatherData));
+		let roundedtemp = +Number(weatherData.temp).toFixed(2)
 		return (
 			<div>
-				<p>Place Name</p>
-				<p>Temperature!</p>
 				<p>{weatherData.name}</p>
+				<p>{weatherData.main}</p>
 				<div className="data">
-					<p>weatherData</p>
+					<p>{weatherData.description}</p>
+					<p>{roundedtemp}</p>
+					<p>{weatherData.humidity}</p>
+					<p>{weatherData.windspeed}</p>
 				</div>
 				<TempScale units={units} tempSwitch={tempSwitch} />
 			</div>
