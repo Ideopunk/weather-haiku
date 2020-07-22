@@ -1,0 +1,62 @@
+{
+	"Thunderstorm": {
+		"subjects": ["thunderstorm", "thunder", "lightning", "storm"],
+		"emoji": "⛈️"
+	},
+	"Drizzle": {
+		"subjects": ["drizzle"],
+		"emoji": "🌦️"
+	},
+	"Rain": {
+		"subjects": ["rain", "downpour"],
+		"emoji": "🌧️"
+	},
+	"Snow": {
+		"subjects": ["snow", "winter", "blizzard"],
+		"emoji": "❄️"
+	},
+	"Mist": {
+		"subjects": ["mist"],
+		"emoji": "🌫️"
+	},
+	"Smoke": {
+		"subjects": ["wildfire"],
+		"emoji": "🚬"
+	},
+	"Haze": {
+		"subjects": ["haze"],
+		"emoji": "🌫️"
+	},
+	"Dust": {
+		"subjects": ["dust"],
+		"emoji": "💨"
+	},
+	"Fog": {
+		"subjects": ["fog"],
+		"emoji": "🌫️"
+	},
+	"Sand": {
+		"subjects": ["sand"],
+		"emoji": "⌛"
+	},
+	"Ash": {
+		"subjects": ["ash"],
+		"emoji": "💨"
+	},
+	"Squall": {
+		"subjects": ["storm"],
+		"emoji": "🌩️"
+	},
+	"Tornado": {
+		"subjects": ["tornado"],
+		"emoji": "🌪️"
+	},
+	"Clear": {
+		"subjects": ["breeze", "sun"],
+		"emoji": "☀️"
+	},
+	"Clouds": {
+		"subjects": ["cloud"],
+		"emoji": "☁️"
+	}
+}

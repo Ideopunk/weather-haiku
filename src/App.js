@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { API_KEY } from "./keys.json";
-import HAIKU_SUBJECTS from "./haikusubjectkeys.json";
+import WEATHER_KEYS from "./weatherkeys.json";
 import Searchbar from "./Searchbar";
 import Display from "./Display";
 import Haiku from "./Haiku";
@@ -15,6 +15,7 @@ class App extends Component {
 			temp: "",
 			humidity: "",
 			windspeed: "",
+			emoji: "",
 		},
 		units: "metric",
 		haiku: {
@@ -52,6 +53,11 @@ class App extends Component {
 			data.wind.speed = (data.wind.speed * 18) / 5;
 		}
 
+		// get emoji 
+		let emojikey = WEATHER_KEYS[data.weather[0].main]
+		let emoji = emojikey.emoji
+		console.log(emoji)
+
 		this.setState({
 			weatherData: {
 				name: data.name,
@@ -61,6 +67,7 @@ class App extends Component {
 				temp: data.main.temp,
 				humidity: data.main.humidity,
 				windspeed: data.wind.speed,
+				emoji: emoji
 			},
 		});
 
@@ -114,9 +121,9 @@ class App extends Component {
 	};
 
 	async getHaiku(haikukey) {
-		let haikusubjectlist = HAIKU_SUBJECTS[haikukey];
-		let haikusubject =
-			haikusubjectlist[
+		let haikusubjectlist = WEATHER_KEYS[haikukey];
+		haikusubjectlist = haikusubjectlist.subjects
+		let haikusubject = haikusubjectlist[
 				Math.floor(Math.random() * haikusubjectlist.length)
 			];
 
