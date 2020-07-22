@@ -9,6 +9,7 @@ class App extends Component {
 	state = {
 		weatherData: {
 			name: "",
+			country: "",
 			main: "",
 			description: "",
 			temp: "",
@@ -44,11 +45,17 @@ class App extends Component {
 				`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${this.state.units}&appid=${API_KEY}`
 			);
 		}
-
 		let data = await response.json();
+
+		// if celsius, convert from m/s to km/h
+		if (this.state.units === "metric") {
+			data.wind.speed = (data.wind.speed * 18) / 5;
+		}
+
 		this.setState({
 			weatherData: {
 				name: data.name,
+				country: data.sys.country,
 				main: data.weather[0].main,
 				description: data.weather[0].description,
 				temp: data.main.temp,
@@ -61,24 +68,39 @@ class App extends Component {
 		this.getHaiku(data.weather[0].main);
 	};
 
-	tempSwitch = () => {
+	// switch temp and wind scales
+	scaleSwitch = () => {
 		let { weatherData, units } = this.state;
+		let newTemp, newSpeed;
 		if (units === "metric") {
-			let newTemp = (weatherData.temp * 9) / 5 + 32;
+			// temp
+			newTemp = (weatherData.temp * 9) / 5 + 32;
 			weatherData.temp = newTemp;
+
+			// wind
+			newSpeed = weatherData.windspeed / 1.609344;
+			weatherData.windspeed = newSpeed;
+
+			// set
 			this.setState({
-				units: "imperial",
 				weatherData: weatherData,
+				units: "imperial",
 			});
 		} else {
-			let newTemp = ((weatherData.temp - 32) * 5) / 9;
+			// temp
+			newTemp = ((weatherData.temp - 32) * 5) / 9;
 			weatherData.temp = newTemp;
+
+			// wind
+			newSpeed = weatherData.windspeed * 1.609344;
+			weatherData.windspeed = newSpeed;
+
+			// set
 			this.setState({
-				units: "metric",
 				weatherData: weatherData,
+				units: "metric",
 			});
 		}
-		console.log("tempswitched");
 	};
 
 	getUserLocation = () => {
@@ -156,13 +178,13 @@ class App extends Component {
 					onClick={this.getUserLocation}
 					value="My Location"
 				/>
-				<div id='displaycontainer'>
-				<Display
-					tempSwitch={this.tempSwitch}
-					units={units}
-					weatherData={weatherData}
-				/>
-				<Haiku haiku={haiku} />
+				<div id="displaycontainer">
+					<Display
+						scaleSwitch={this.scaleSwitch}
+						units={units}
+						weatherData={weatherData}
+					/>
+					<Haiku haiku={haiku} />
 				</div>
 			</div>
 		);

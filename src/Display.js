@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 import TempScale from "./TempScale";
+import Wind from "./Wind";
 
 class Display extends Component {
 	render() {
-		const { weatherData, tempSwitch, units } = this.props;
-		let roundedtemp = +Number(weatherData.temp).toFixed(2)
+		const { weatherData, scaleSwitch, units } = this.props;
 		return (
-			<div class='contentcontainer' id='weathercontainer'>
-				<p>{weatherData.name}</p>
+			<div class="contentcontainer" id="weathercontainer">
+				<p id="location">
+					{weatherData.name}, {weatherData.country}
+				</p>
 				<p>{weatherData.main}</p>
 				<div className="data">
-					<p>{weatherData.description}</p>
-					<p>{roundedtemp}</p>
-					<p>{weatherData.humidity}</p>
-					<p>{weatherData.windspeed}</p>
+					<p id="description">{weatherData.description}</p>
+					<TempScale
+						weatherData={weatherData}
+						units={units}
+						scaleSwitch={scaleSwitch}
+					/>
+					<p id="humidity">{weatherData.humidity}%</p>
+					<Wind weatherData={weatherData} units={units} />
 				</div>
-				<TempScale units={units} tempSwitch={tempSwitch} />
 			</div>
 		);
 	}

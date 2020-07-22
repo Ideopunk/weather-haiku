@@ -2,8 +2,15 @@ import React, { Component } from "react";
 
 class Tempscale extends Component {
 	render() {
-		const { tempSwitch, units } = this.props;
-		return <div onClick={tempSwitch}>{units}</div>;
+		const { weatherData, scaleSwitch, units } = this.props;
+		let roundedtemp = +Number(weatherData.temp).toFixed(2)
+		let degreesymbol;
+		if (units === "imperial") {
+			degreesymbol = "F";
+		} else {
+			degreesymbol = "C";
+		}
+		return <div id="temp" onClick={scaleSwitch}>{roundedtemp} º{degreesymbol}</div>;
 	}
 }
 
