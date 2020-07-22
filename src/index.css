@@ -25,15 +25,101 @@ input {
 	border: 1px solid black;
 	border-radius: 10px;
 	padding: 12px;
+	width: 800px;
+	height: 400px;
 }
 
+/* Search Bar Stuff */
+
+#searchcontainer {
+	display: flex;
+	height: 10%;
+}
+
+#weather-api-search {
+	width: 78%;
+	height: 40px;
+	font-size: 18px;
+}
+
+#country {
+	width: 10%;
+	height: 40px;
+	font-size: 18px;
+}
+
+.searchbutton {
+	background-color: rgb(97, 185, 226);
+	border: 2px solid rgb(175, 219, 240);
+	border-radius: 3px;
+	font-size: 18px;
+}
+
+#locationbutton {
+	height: 40px;
+}
+
+#submit {
+	height: 40px;
+	align-self: flex-end;
+}
+
+/* Display Stuff */
 #displaycontainer {
 	display: flex;
 	border-top: 1px solid black;
 	margin-top: 10px;
+	height: 90%;
 	/* justify-content: space-evenly; */
 }
 
-.contentcontainer {
+/* .contentcontainer {
 	width: 50%;
+} */
+
+#weathercontainer {
+	border-right: 1px solid black;
+	position: relative;
+	width: 70%;
+}
+
+#haikucontainer {
+	padding: 5px;
+	width: 30%;
+}
+
+
+
+#location {
+	font-size: 25px;
+	position: absolute;
+	left: 10%;
+	top: 10%;
+}
+
+#temp {
+	font-size: 25px;
+	position: absolute;
+	right: 10%;
+	top: 10%;
+}
+
+#main {
+	position: absolute;
+	left: 50%;
+	top: 10%;
+}
+
+/* Haiku */
+
+#bonushaiku {
+	position: relative;
+	left: 10%;
+	top: 10%;
+}
+
+#haikumetadata {
+	position: relative;
+	top: 4rem;
+	font-size: small;
 }

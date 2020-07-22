@@ -153,7 +153,7 @@ class App extends Component {
 		// snag the author and date
 		let haikumetadata = haikudom.querySelector(".dbhktlref");
 		haikumetadata = haikumetadata.textContent;
-		let haikuauthor = haikumetadata.match(/^.*(?=,)/);
+		let haikuauthor = haikumetadata.match(/^.*(?= ,)/);
 		let haikudate = haikumetadata.replace(/(.*cco )(.*)/, "$2");
 
 		let { weatherData, units } = this.state;
@@ -172,12 +172,16 @@ class App extends Component {
 		const { weatherData, units, haiku } = this.state;
 		return (
 			<div className="App">
-				<Searchbar handleSubmit={this.handleSubmit} />
-				<input
-					type="button"
-					onClick={this.getUserLocation}
-					value="My Location"
-				/>
+				<div id="searchcontainer">
+					<input
+						type="button"
+						onClick={this.getUserLocation}
+						className="searchbutton"
+						id="locationbutton"
+						value="Here"
+					/>
+					<Searchbar handleSubmit={this.handleSubmit} />
+				</div>
 				<div id="displaycontainer">
 					<Display
 						scaleSwitch={this.scaleSwitch}

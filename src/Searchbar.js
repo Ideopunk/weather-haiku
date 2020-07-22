@@ -45,6 +45,8 @@ class Searchbar extends Component {
 				<input
 					type="button"
 					value="Submit"
+					id='submit'
+					className='searchbutton'
 					onClick={this.submitInput}
 				/>
 			</form>
