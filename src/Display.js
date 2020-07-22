@@ -6,8 +6,19 @@ class Display extends Component {
 	render() {
 		const { weatherData, scaleSwitch, units } = this.props;
 		let emoji = weatherData.emoji
+
+		let status
+		if (weatherData.name.length > 0) {
+			status = "reveal"
+		} else {
+			status = "hide"
+		}
+
+		let contentcontainer = "contentcontainer"
+		let combinedclass = `${contentcontainer} ${status}`
+
 		return (
-			<div className="contentcontainer" id="weathercontainer">
+			<div className={combinedclass} id="weathercontainer">
 				<div id="location">
 					<p id="main">{weatherData.name}, {weatherData.country}</p>
 				</div>

@@ -88,8 +88,6 @@ input {
 	width: 30%;
 }
 
-
-
 #location {
 	font-size: 25px;
 	position: absolute;
@@ -110,6 +108,10 @@ input {
 	top: 10%;
 }
 
+#emoji {
+	font-size: xx-large;
+}
+
 /* Haiku */
 
 #bonushaiku {
@@ -122,4 +124,23 @@ input {
 	position: relative;
 	top: 4rem;
 	font-size: small;
+}
+
+.reveal {
+	opacity: 100%;
+	animation-name: show;
+	animation-duration: 0.75s;
+}
+
+@keyframes show {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+.hide {
+	opacity: 0%;
 }
