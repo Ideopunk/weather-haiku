@@ -23,16 +23,16 @@ class App extends Component {
 			author: "",
 			date: "",
 		},
-		errormessage: ""
+		errormessage: "",
 	};
 
 	handleSubmit = async (location) => {
-		// get the value from the object
 		let { city, country, lat, long } = location;
-		console.log(city, country, lat, long);
 
+		// get the value from the object
 		location = Object.values(location);
 
+		// snag our weather data
 		let response, data, errormessage;
 		try {
 			if (lat && long) {
@@ -49,34 +49,33 @@ class App extends Component {
 				);
 			}
 			data = await response.json();
-			
+
 			// if celsius, convert from m/s to km/h
 			if (this.state.units === "metric") {
-			data.wind.speed = (data.wind.speed * 18) / 5;
-			errormessage = false;
+				data.wind.speed = (data.wind.speed * 18) / 5;
+				errormessage = false;
+				this.setState({
+					errormessage: errormessage,
+				});
+			}
+		} catch (error) {
+			console.log(`Can't find that there city`);
+			console.log(error);
+			errormessage = "City not found";
 			this.setState({
-				errormessage: errormessage
-			})
-		}
-		} catch {
-			console.log('error!')
-			errormessage = "City not found"
-			this.setState({
-				errormessage: errormessage
-			})
-			return
+				errormessage: errormessage,
+			});
+			return;
 		}
 
-
-
-		// get emoji 
-		let emojikey = WEATHER_KEYS[data.weather[0].main]
-		let emoji = emojikey.emoji
-		console.log(emoji)
+		// get emoji
+		let emojikey = WEATHER_KEYS[data.weather[0].main];
+		let emoji = emojikey.emoji;
 
 		// capitalize description
-		let capDescription = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1)
-
+		let capDescription =
+			data.weather[0].description.charAt(0).toUpperCase() +
+			data.weather[0].description.slice(1);
 
 		this.setState({
 			weatherData: {
@@ -87,7 +86,7 @@ class App extends Component {
 				temp: data.main.temp,
 				humidity: data.main.humidity,
 				windspeed: data.wind.speed,
-				emoji: emoji
+				emoji: emoji,
 			},
 		});
 
@@ -130,6 +129,7 @@ class App extends Component {
 		}
 	};
 
+	// display user's location
 	getUserLocation = () => {
 		navigator.geolocation.getCurrentPosition((position) => {
 			let coords = {
@@ -142,8 +142,9 @@ class App extends Component {
 
 	async getHaiku(haikukey) {
 		let haikusubjectlist = WEATHER_KEYS[haikukey];
-		haikusubjectlist = haikusubjectlist.subjects
-		let haikusubject = haikusubjectlist[
+		haikusubjectlist = haikusubjectlist.subjects;
+		let haikusubject =
+			haikusubjectlist[
 				Math.floor(Math.random() * haikusubjectlist.length)
 			];
 
@@ -159,6 +160,7 @@ class App extends Component {
 		} catch (error) {
 			console.log(`P sure we didn't get the haiku`);
 			console.log(error);
+			return;
 		}
 
 		let re = /<div class.*?<\/div>/gs;
@@ -170,11 +172,10 @@ class App extends Component {
 		let domparser = new DOMParser();
 		let haikudom = domparser.parseFromString(singleHaiku, "text/html");
 		let haikutext = haikudom.querySelector(".haiku");
-		haikutext = haikutext.innerHTML
-		haikutext = haikutext.replace("&lt", "<")
-		haikutext = haikutext.replace("&gt", ">")
+		haikutext = haikutext.innerHTML;
+		haikutext = haikutext.replace("&lt", "<");
+		haikutext = haikutext.replace("&gt", ">");
 		haikutext = haikutext.split("<br>");
-		
 
 		// reduce length
 		if (haikutext.length > 3) {
@@ -211,7 +212,10 @@ class App extends Component {
 						id="locationbutton"
 						value="Here"
 					/>
-					<Searchbar errormessage={errormessage} handleSubmit={this.handleSubmit} />
+					<Searchbar
+						errormessage={errormessage}
+						handleSubmit={this.handleSubmit}
+					/>
 				</div>
 				<div id="displaycontainer">
 					<Display
@@ -221,7 +225,10 @@ class App extends Component {
 					/>
 					<Haiku haiku={haiku} />
 				</div>
-				<div id="credit">Background image via <a href="https://www.reddit.com/user/Biode/">u/Biode</a></div>
+				<div id="credit">
+					Background image via{" "}
+					<a href="https://www.reddit.com/user/Biode/">u/Biode</a>
+				</div>
 			</div>
 		);
 	}

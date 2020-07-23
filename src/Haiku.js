@@ -3,10 +3,6 @@ import React, { Component } from "react";
 class Haiku extends Component {
 	render() {
 		const { haiku } = this.props;
-		console.log('haiku')
-		console.log(haiku);
-		console.log(haiku.text);
-		console.log(Array.isArray(haiku.text));
 
 		let status
 		if (haiku.text.length > 0) {
