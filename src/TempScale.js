@@ -4,13 +4,15 @@ class Tempscale extends Component {
 	render() {
 		const { weatherData, scaleSwitch, units } = this.props;
 		let roundedtemp = +Number(weatherData.temp).toFixed(2)
-		let degreesymbol;
+		let C, F;
 		if (units === "imperial") {
-			degreesymbol = "F";
+			C="greyed"
+			F="fine"
 		} else {
-			degreesymbol = "C";
+			C="fine"
+			F="greyed"
 		}
-		return <div id="temp" onClick={scaleSwitch}>{roundedtemp} º{degreesymbol}</div>;
+		return <div id="temp" onClick={scaleSwitch}>{roundedtemp} <span className={C}>ºC</span><span className='greyed'> / </span><span className={F}>ºF</span></div>;
 	}
 }
 
