@@ -23,6 +23,7 @@ class App extends Component {
 			author: "",
 			date: "",
 		},
+		errormessage: ""
 	};
 
 	handleSubmit = async (location) => {
@@ -32,26 +33,41 @@ class App extends Component {
 
 		location = Object.values(location);
 
-		let response;
-		if (lat && long) {
-			response = await fetch(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${this.state.units}&appid=${API_KEY}`
-			);
-		} else if (!country) {
-			response = await fetch(
-				`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${this.state.units}&appid=${API_KEY}`
-			);
-		} else {
-			response = await fetch(
-				`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${this.state.units}&appid=${API_KEY}`
-			);
-		}
-		let data = await response.json();
-
-		// if celsius, convert from m/s to km/h
-		if (this.state.units === "metric") {
+		let response, data, errormessage;
+		try {
+			if (lat && long) {
+				response = await fetch(
+					`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=${this.state.units}&appid=${API_KEY}`
+				);
+			} else if (!country) {
+				response = await fetch(
+					`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${this.state.units}&appid=${API_KEY}`
+				);
+			} else {
+				response = await fetch(
+					`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${this.state.units}&appid=${API_KEY}`
+				);
+			}
+			data = await response.json();
+			
+			// if celsius, convert from m/s to km/h
+			if (this.state.units === "metric") {
 			data.wind.speed = (data.wind.speed * 18) / 5;
+			errormessage = false;
+			this.setState({
+				errormessage: errormessage
+			})
 		}
+		} catch {
+			console.log('error!')
+			errormessage = "City not found"
+			this.setState({
+				errormessage: errormessage
+			})
+			return
+		}
+
+
 
 		// get emoji 
 		let emojikey = WEATHER_KEYS[data.weather[0].main]
@@ -184,7 +200,7 @@ class App extends Component {
 	}
 
 	render() {
-		const { weatherData, units, haiku } = this.state;
+		const { weatherData, units, haiku, errormessage } = this.state;
 		return (
 			<div className="App">
 				<div id="searchcontainer">
@@ -195,7 +211,7 @@ class App extends Component {
 						id="locationbutton"
 						value="Here"
 					/>
-					<Searchbar handleSubmit={this.handleSubmit} />
+					<Searchbar errormessage={errormessage} handleSubmit={this.handleSubmit} />
 				</div>
 				<div id="displaycontainer">
 					<Display

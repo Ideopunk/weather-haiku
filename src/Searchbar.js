@@ -4,6 +4,7 @@ class Searchbar extends Component {
 	initialState = {
 		city: "",
 		country: "",
+		placeholder: "London (city name required)"
 	};
 
 	state = this.initialState;
@@ -22,7 +23,11 @@ class Searchbar extends Component {
 	};
 
 	render() {
-		const { city, country } = this.state
+		let { city, country, placeholder } = this.state
+		const { errormessage } = this.props
+		if (errormessage) {
+			placeholder = errormessage
+		}
 
 		return (
 			<form>
@@ -32,7 +37,7 @@ class Searchbar extends Component {
 					name="city"
 					value={city}
 					required
-					placeholder="London"
+					placeholder={placeholder}
 					onChange={this.handleChange}
 				/>
 				<input
@@ -41,7 +46,7 @@ class Searchbar extends Component {
 					name="country"
 					value={country}
 					maxLength="2"
-					placeholder="UK"
+					placeholder="GB"
 					onChange={this.handleChange}
 				/>
 				<input
