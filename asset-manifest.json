@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/weather-haiku/static/css/main.19544f9a.chunk.css",
+    "main.css": "/weather-haiku/static/css/main.335558b4.chunk.css",
     "main.js": "/weather-haiku/static/js/main.3ead9172.chunk.js",
     "main.js.map": "/weather-haiku/static/js/main.3ead9172.chunk.js.map",
     "runtime-main.js": "/weather-haiku/static/js/runtime-main.108dbb45.js",
@@ -8,15 +8,15 @@
     "static/js/2.afe039e6.chunk.js": "/weather-haiku/static/js/2.afe039e6.chunk.js",
     "static/js/2.afe039e6.chunk.js.map": "/weather-haiku/static/js/2.afe039e6.chunk.js.map",
     "index.html": "/weather-haiku/index.html",
-    "precache-manifest.9a2a9f1ed4b3c4730f4b0a5a7826334e.js": "/weather-haiku/precache-manifest.9a2a9f1ed4b3c4730f4b0a5a7826334e.js",
+    "precache-manifest.9171976ee928d97c86dbb3a88a5a4dfa.js": "/weather-haiku/precache-manifest.9171976ee928d97c86dbb3a88a5a4dfa.js",
     "service-worker.js": "/weather-haiku/service-worker.js",
-    "static/css/main.19544f9a.chunk.css.map": "/weather-haiku/static/css/main.19544f9a.chunk.css.map",
+    "static/css/main.335558b4.chunk.css.map": "/weather-haiku/static/css/main.335558b4.chunk.css.map",
     "static/js/2.afe039e6.chunk.js.LICENSE.txt": "/weather-haiku/static/js/2.afe039e6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.108dbb45.js",
     "static/js/2.afe039e6.chunk.js",
-    "static/css/main.19544f9a.chunk.css",
+    "static/css/main.335558b4.chunk.css",
     "static/js/main.3ead9172.chunk.js"
   ]
 }

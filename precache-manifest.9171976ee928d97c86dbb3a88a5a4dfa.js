@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d891553a4dff4ba659bd09d3f43f0ab",
+    "revision": "49636669114485ec02c1c3235e518f96",
     "url": "/weather-haiku/index.html"
   },
   {
-    "revision": "4d6cd526e471b2010920",
-    "url": "/weather-haiku/static/css/main.19544f9a.chunk.css"
+    "revision": "2fa2909fa95106ab5dc5",
+    "url": "/weather-haiku/static/css/main.335558b4.chunk.css"
   },
   {
     "revision": "bcee290dd986e65aebc3",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/weather-haiku/static/js/2.afe039e6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4d6cd526e471b2010920",
+    "revision": "2fa2909fa95106ab5dc5",
     "url": "/weather-haiku/static/js/main.3ead9172.chunk.js"
   },
   {
