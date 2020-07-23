@@ -127,11 +127,11 @@ form {
 }
 
 .greyed {
-	opacity: 30%;
+	color: lightgrey;
 }
 
 .fine {
-	opacity: 100%;
+	color: black;
 }
 
 /* Haiku */
