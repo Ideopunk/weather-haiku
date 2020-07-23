@@ -16,7 +16,8 @@ class Searchbar extends Component {
 		});
 	};
 
-	submitInput = () => {
+	submitInput = (event) => {
+		event.preventDefault();
 		this.props.handleSubmit(this.state);
 		this.setState(this.initialState);
 	};
@@ -29,7 +30,7 @@ class Searchbar extends Component {
 		}
 
 		return (
-			<form>
+			<form onSubmit={this.submitInput}>
 				<input
 					type="search"
 					id="weather-api-search"
@@ -49,11 +50,10 @@ class Searchbar extends Component {
 					onChange={this.handleChange}
 				/>
 				<input
-					type="button"
+					type="submit"
 					value="Submit"
 					id='submit'
 					className='searchbutton'
-					onClick={this.submitInput}
 				/>
 			</form>
 		);
