@@ -169,7 +169,7 @@ form {
 /* General */
 
 .reveal {
-	opacity: 100%;
+	opacity: 1;
 	animation-name: show;
 	animation-duration: 0.75s;
 }
@@ -190,6 +190,6 @@ form {
 #credit {
 	position: absolute;
 	bottom: 1%;
-	right: 1%;
+	right: 2%;
 	font-size: 0.7rem;
 }
