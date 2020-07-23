@@ -6,6 +6,10 @@ html {
 
 body {
 	height: 100%;
+	background-image: url(https://external-preview.redd.it/5XNzxTrtqfyb44L7SIJ69DG2bYV8um8Q41lx5nt4ug4.png?auto=webp&s=59065e00b9a6706716bc897d65910c762812a2ac);
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: hidden;
 }
 
 p,
@@ -27,6 +31,7 @@ input {
 	padding: 12px;
 	width: 800px;
 	height: 300px;
+	background-color: white;
 }
 
 /* Search Bar Stuff */
@@ -34,10 +39,11 @@ input {
 #searchcontainer {
 	display: flex;
 	height: 17%;
+	width: 100%;
 }
 
 #weather-api-search {
-	width: 78%;
+	width: 100%;
 	height: 40px;
 	font-size: 18px;
 }
@@ -57,25 +63,27 @@ input {
 
 #locationbutton {
 	height: 40px;
+	width: 10%;
 }
 
 #submit {
 	height: 40px;
+	width: 20%;
 	align-self: flex-end;
 }
 
+form {
+	display: flex;
+	width: 90%;
+	height: 40px;
+}
 /* Display Stuff */
 #displaycontainer {
 	display: flex;
 	border-top: 1px solid black;
 	margin-top: 10px;
 	height: 83%;
-	/* justify-content: space-evenly; */
 }
-
-/* .contentcontainer {
-	width: 50%;
-} */
 
 #weathercontainer {
 	border-right: 1px solid black;
@@ -91,6 +99,7 @@ input {
 #location {
 	font-size: 25px;
 	position: absolute;
+	width: 100%;
 	left: 0%;
 	top: 0%;
 }
@@ -111,8 +120,8 @@ input {
 #emoji {
 	font-size: xx-large;
 	position: absolute;
-	left: 20%;
-	top: 0%;
+	left: 5%;
+	top: 20%;
 }
 
 /* Haiku */
@@ -163,4 +172,11 @@ input {
 
 #winddiv {
 	left: 70%;
+}
+
+#credit {
+	position: absolute;
+	bottom: 1%;
+	right: 1%;
+	font-size: 0.7rem;
 }

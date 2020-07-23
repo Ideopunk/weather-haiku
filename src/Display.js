@@ -5,7 +5,8 @@ import Wind from "./Wind";
 class Display extends Component {
 	render() {
 		const { weatherData, scaleSwitch, units } = this.props;
-		let emoji = weatherData.emoji
+		let emoji = weatherData.emoji + " "
+		emoji = emoji.repeat(10)
 
 		let status
 		if (weatherData.name.length > 0) {

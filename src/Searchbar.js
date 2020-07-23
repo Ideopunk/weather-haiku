@@ -32,6 +32,7 @@ class Searchbar extends Component {
 					name="city"
 					value={city}
 					required
+					placeholder="London"
 					onChange={this.handleChange}
 				/>
 				<input
@@ -40,6 +41,7 @@ class Searchbar extends Component {
 					name="country"
 					value={country}
 					maxLength="2"
+					placeholder="UK"
 					onChange={this.handleChange}
 				/>
 				<input

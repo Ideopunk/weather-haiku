@@ -9,7 +9,7 @@ class Wind extends Component {
 		if (units === "imperial") {
 			per = "mph";
 		} else {
-			per = "km per h";
+			per = "km/h";
 		}
 		return (
 			<div className="weatherdiv" id="winddiv">

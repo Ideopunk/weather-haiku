@@ -58,12 +58,16 @@ class App extends Component {
 		let emoji = emojikey.emoji
 		console.log(emoji)
 
+		// capitalize description
+		let capDescription = data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1)
+
+
 		this.setState({
 			weatherData: {
 				name: data.name,
 				country: data.sys.country,
 				main: data.weather[0].main,
-				description: data.weather[0].description,
+				description: capDescription,
 				temp: data.main.temp,
 				humidity: data.main.humidity,
 				windspeed: data.wind.speed,
@@ -201,6 +205,7 @@ class App extends Component {
 					/>
 					<Haiku haiku={haiku} />
 				</div>
+				<div id="credit">Background image via <a href="https://www.reddit.com/user/Biode/">u/Biode</a></div>
 			</div>
 		);
 	}
