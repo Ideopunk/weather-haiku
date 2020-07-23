@@ -22,15 +22,20 @@ class Display extends Component {
 				<div id="location">
 					<p id="main">{weatherData.name}, {weatherData.country}</p>
 				</div>
-				<p>{weatherData.main}</p>
 				<p id='emoji'>{emoji}</p>
 				<TempScale
 						weatherData={weatherData}
 						units={units}
 						scaleSwitch={scaleSwitch}
 				/>
-				<p id="description">{weatherData.description}</p>
-				<p id="humidity">{weatherData.humidity}%</p>
+				<div className="weatherdiv" id="descriptiondiv">
+					<p className="weatherlabel">Description: </p>
+					<p id="description">{weatherData.description}</p>
+				</div>
+				<div className="weatherdiv" id="humiditydiv">
+					<p className="weatherlabel">Humidity: </p>
+					<p id="humidity">{weatherData.humidity}%</p>
+				</div>
 				<Wind weatherData={weatherData} units={units} />
 			</div>
 		);

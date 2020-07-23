@@ -7,11 +7,16 @@ class Wind extends Component {
         
 		let per;
 		if (units === "imperial") {
-			per = "m per h";
+			per = "mph";
 		} else {
 			per = "km per h";
 		}
-		return <div id="wind">{roundedtemp} {per}</div>;
+		return (
+			<div className="weatherdiv" id="winddiv">
+				<p className="weatherlabel">Wind speed:</p>
+				<p>{roundedtemp} {per}</p>
+			</div>
+		)
 	}
 }
 

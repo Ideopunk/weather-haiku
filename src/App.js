@@ -150,7 +150,11 @@ class App extends Component {
 		let domparser = new DOMParser();
 		let haikudom = domparser.parseFromString(singleHaiku, "text/html");
 		let haikutext = haikudom.querySelector(".haiku");
-		haikutext = haikutext.innerHTML.split("<br>");
+		haikutext = haikutext.innerHTML
+		haikutext = haikutext.replace("&lt", "<")
+		haikutext = haikutext.replace("&gt", ">")
+		haikutext = haikutext.split("<br>");
+		
 
 		// reduce length
 		if (haikutext.length > 3) {

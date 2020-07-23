@@ -26,14 +26,14 @@ input {
 	border-radius: 10px;
 	padding: 12px;
 	width: 800px;
-	height: 400px;
+	height: 300px;
 }
 
 /* Search Bar Stuff */
 
 #searchcontainer {
 	display: flex;
-	height: 10%;
+	height: 17%;
 }
 
 #weather-api-search {
@@ -69,7 +69,7 @@ input {
 	display: flex;
 	border-top: 1px solid black;
 	margin-top: 10px;
-	height: 90%;
+	height: 83%;
 	/* justify-content: space-evenly; */
 }
 
@@ -91,8 +91,8 @@ input {
 #location {
 	font-size: 25px;
 	position: absolute;
-	left: 10%;
-	top: 10%;
+	left: 0%;
+	top: 0%;
 }
 
 #temp {
@@ -104,25 +104,27 @@ input {
 
 #main {
 	position: absolute;
-	left: 50%;
+	left: 5%;
 	top: 10%;
 }
 
 #emoji {
 	font-size: xx-large;
+	position: absolute;
+	left: 20%;
+	top: 0%;
 }
 
 /* Haiku */
 
 #bonushaiku {
 	position: relative;
-	left: 10%;
-	top: 10%;
+	left: 5%;
 }
 
 #haikumetadata {
 	position: relative;
-	top: 4rem;
+	bottom: -2rem;
 	font-size: small;
 }
 
@@ -143,4 +145,22 @@ input {
 
 .hide {
 	opacity: 0%;
+}
+
+.weatherdiv {
+	position: absolute;
+	bottom: 10%;
+	font-size: large;
+}
+
+#descriptiondiv {
+	left: 5%;
+}
+
+#humiditydiv {
+	left: 40%;
+}
+
+#winddiv {
+	left: 70%;
 }
