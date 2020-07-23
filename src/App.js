@@ -28,7 +28,8 @@ class App extends Component {
 
 	handleSubmit = async (location) => {
 		let { city, country, lat, long } = location;
-
+		console.log('handlesubmit')
+		console.log(location)
 		// get the value from the object
 		location = Object.values(location);
 
