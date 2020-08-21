@@ -23,6 +23,11 @@ class Display extends Component {
 				<div id="location">
 					<p id="main">{weatherData.name}, {weatherData.country}</p>
 				</div>
+				<TempScale
+						weatherData={weatherData}
+						units={units}
+						scaleSwitch={scaleSwitch}
+				/>
 				<div id='emoji'>
 					<p>{emoji}</p>
 					<p>{emoji}</p>
@@ -30,11 +35,7 @@ class Display extends Component {
 					<p>{emoji}</p>
 					<p>{emoji}</p>
 				</div>
-				<TempScale
-						weatherData={weatherData}
-						units={units}
-						scaleSwitch={scaleSwitch}
-				/>
+
 				<div className="weatherdiv" id="descriptiondiv">
 					<p className="weatherlabel">Description: </p>
 					<p id="description">{weatherData.description}</p>

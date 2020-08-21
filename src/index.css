@@ -113,6 +113,7 @@ form {
 	flex: 1;
 	height: 40px;
 	font-size: 18px;
+	width: 100%;
 }
 
 #country {
@@ -164,16 +165,21 @@ form {
 }
 
 #weathercontainer {
-	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
 	width: 70%;
 	min-height: 260px;
 	height: 80%;
+	padding-left: 20px;
+	padding-right: 20px;
 	box-sizing: border-box;
 }
 
 @media (max-width: 1023px) {
 	#weathercontainer {
-		height: 50%;
+		height: 60%;
 		width: 100%;
 	}
 }
@@ -190,38 +196,31 @@ form {
 		flex: 1;
 		width: 100%;
 		border-left-width: 0px;
-		border-top: 1px solid black;
+		border-top: 1px solid grey;
 	}
 }
 
 #location {
 	font-size: 25px;
-	position: absolute;
-	width: 100%;
-	left: 0%;
-	top: 0%;
+	flex:  1 1 35%;
 }
 
 #temp {
 	font-size: 25px;
-	position: absolute;
-	right: 10%;
-	top: 10%;
-}
-
-#main {
-	position: absolute;
-	left: 5%;
-	top: 10%;
+	flex: 1 1 15%;
+	text-align: end;
 }
 
 #emoji {
 	font-size: xx-large;
-	position: absolute;
-	top: 20%;
 	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-between;
+}
+
+.weatherdiv {
+	font-size: large;
+	line-height: 30px;
 }
 
 .greyed {
@@ -250,27 +249,18 @@ form {
 	}
 }
 
+#haikutext {
+	line-height: 25px;
+}
+
 #haikumetadata {
 	font-size: small;
+	line-height: 20px;
 }
 
-.weatherdiv {
-	position: absolute;
-	bottom: 10%;
-	font-size: large;
-}
 
-#descriptiondiv {
-	left: 5%;
-}
 
-#humiditydiv {
-	left: 40%;
-}
 
-#winddiv {
-	left: 70%;
-}
 
 /* General */
 
