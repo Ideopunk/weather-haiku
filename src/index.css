@@ -201,7 +201,7 @@ form {
 
 #location {
 	font-size: 25px;
-	flex:  1 1 35%;
+	flex:  1 1 25%;
 }
 
 #temp {
@@ -220,6 +220,12 @@ form {
 .weatherdiv {
 	font-size: large;
 	line-height: 30px;
+}
+
+@media (max-width: 767px) {
+	.weatherdiv {
+		font-size: medium;
+	}
 }
 
 .greyed {
@@ -257,7 +263,11 @@ form {
 	line-height: 20px;
 }
 
-
+@media (max-width: 767px) {
+	#haikumetadata {
+		width: 16ch;
+	}
+}
 
 
 
