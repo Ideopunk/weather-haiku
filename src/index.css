@@ -66,6 +66,11 @@ input {
 	appearance: none;
 }
 
+input {
+	border: 1px solid black;
+}
+
+
 
 #root {
 	height: 100%;
@@ -91,6 +96,8 @@ input {
 
 @media (max-width: 1023px) {
 	.App {
+		width: 80%;
+		height: 80%;
 		min-height: 300px;
 		max-height: 600px;
 	}
@@ -134,6 +141,7 @@ form {
 #locationbutton {
 	height: 40px;
 	width: 6ch;
+	text-align: center;
 }
 
 #submit {
@@ -202,7 +210,7 @@ form {
 
 #location {
 	font-size: 25px;
-	flex:  1 1 25%;
+	flex:  1 1 15%;
 }
 
 #temp {
@@ -225,6 +233,7 @@ form {
 
 @media (max-width: 767px) {
 	.weatherdiv {
+		line-height: 20px;
 		font-size: small;
 	}
 }
@@ -258,6 +267,12 @@ form {
 	line-height: 25px;
 }
 
+@media (max-width: 767px) {
+	#haikutext {
+		line-height: 30px;
+	}
+}
+
 #haikumetadata {
 	font-size: small;
 	line-height: 20px;
@@ -265,8 +280,9 @@ form {
 
 @media (max-width: 767px) {
 	#haikumetadata {
-		font-size: x-small;
+		font-size: xx-small;
 		width: 16ch;
+		line-height: 15px;
 	}
 }
 
