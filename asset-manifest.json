@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/weather-haiku/static/css/main.a4ff2b53.chunk.css",
-    "main.js": "/weather-haiku/static/js/main.a3646d90.chunk.js",
-    "main.js.map": "/weather-haiku/static/js/main.a3646d90.chunk.js.map",
+    "main.css": "/weather-haiku/static/css/main.fa43c518.chunk.css",
+    "main.js": "/weather-haiku/static/js/main.6e9efb91.chunk.js",
+    "main.js.map": "/weather-haiku/static/js/main.6e9efb91.chunk.js.map",
     "runtime-main.js": "/weather-haiku/static/js/runtime-main.108dbb45.js",
     "runtime-main.js.map": "/weather-haiku/static/js/runtime-main.108dbb45.js.map",
     "static/js/2.afe039e6.chunk.js": "/weather-haiku/static/js/2.afe039e6.chunk.js",
     "static/js/2.afe039e6.chunk.js.map": "/weather-haiku/static/js/2.afe039e6.chunk.js.map",
     "index.html": "/weather-haiku/index.html",
-    "precache-manifest.c25dbe135846dae32dd3179e71502ece.js": "/weather-haiku/precache-manifest.c25dbe135846dae32dd3179e71502ece.js",
+    "precache-manifest.00b66ae057b73bd63e3cfdd9564a7d70.js": "/weather-haiku/precache-manifest.00b66ae057b73bd63e3cfdd9564a7d70.js",
     "service-worker.js": "/weather-haiku/service-worker.js",
-    "static/css/main.a4ff2b53.chunk.css.map": "/weather-haiku/static/css/main.a4ff2b53.chunk.css.map",
+    "static/css/main.fa43c518.chunk.css.map": "/weather-haiku/static/css/main.fa43c518.chunk.css.map",
     "static/js/2.afe039e6.chunk.js.LICENSE.txt": "/weather-haiku/static/js/2.afe039e6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.108dbb45.js",
     "static/js/2.afe039e6.chunk.js",
-    "static/css/main.a4ff2b53.chunk.css",
-    "static/js/main.a3646d90.chunk.js"
+    "static/css/main.fa43c518.chunk.css",
+    "static/js/main.6e9efb91.chunk.js"
   ]
 }
