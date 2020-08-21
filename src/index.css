@@ -63,6 +63,7 @@ p,
 input {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
 		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+	appearance: none;
 }
 
 
@@ -224,7 +225,7 @@ form {
 
 @media (max-width: 767px) {
 	.weatherdiv {
-		font-size: medium;
+		font-size: small;
 	}
 }
 
@@ -244,13 +245,12 @@ form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-around;
 }
 
 @media (max-width: 1023px) {
 	#bonushaiku {
 		flex-direction: row;
-		justify-content: space-around;
 	}
 }
 
@@ -265,6 +265,7 @@ form {
 
 @media (max-width: 767px) {
 	#haikumetadata {
+		font-size: x-small;
 		width: 16ch;
 	}
 }
