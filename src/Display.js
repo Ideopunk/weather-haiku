@@ -6,7 +6,7 @@ class Display extends Component {
 	render() {
 		const { weatherData, scaleSwitch, units } = this.props;
 		let emoji = weatherData.emoji + " "
-		emoji = emoji.repeat(10)
+		// emoji = emoji.repeat(10)
 
 		let status
 		if (weatherData.name.length > 0) {
@@ -23,7 +23,13 @@ class Display extends Component {
 				<div id="location">
 					<p id="main">{weatherData.name}, {weatherData.country}</p>
 				</div>
-				<p id='emoji'>{emoji}</p>
+				<div id='emoji'>
+					<p>{emoji}</p>
+					<p>{emoji}</p>
+					<p>{emoji}</p>
+					<p>{emoji}</p>
+					<p>{emoji}</p>
+				</div>
 				<TempScale
 						weatherData={weatherData}
 						units={units}
