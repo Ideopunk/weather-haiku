@@ -152,7 +152,6 @@ form {
 	display: flex;
 	border-top: 1px solid black;
 	margin-top: 10px;
-	/* height: 94%; */
 	flex: 1 1 400;
 	box-sizing: border-box;
 }
