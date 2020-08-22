@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/weather-haiku/static/css/main.f390221d.chunk.css",
-    "main.js": "/weather-haiku/static/js/main.6e9efb91.chunk.js",
-    "main.js.map": "/weather-haiku/static/js/main.6e9efb91.chunk.js.map",
-    "runtime-main.js": "/weather-haiku/static/js/runtime-main.108dbb45.js",
-    "runtime-main.js.map": "/weather-haiku/static/js/runtime-main.108dbb45.js.map",
-    "static/js/2.afe039e6.chunk.js": "/weather-haiku/static/js/2.afe039e6.chunk.js",
-    "static/js/2.afe039e6.chunk.js.map": "/weather-haiku/static/js/2.afe039e6.chunk.js.map",
-    "index.html": "/weather-haiku/index.html",
-    "precache-manifest.d12b7f8eaa864c96dd305afd56ae06b5.js": "/weather-haiku/precache-manifest.d12b7f8eaa864c96dd305afd56ae06b5.js",
-    "service-worker.js": "/weather-haiku/service-worker.js",
-    "static/css/main.f390221d.chunk.css.map": "/weather-haiku/static/css/main.f390221d.chunk.css.map",
-    "static/js/2.afe039e6.chunk.js.LICENSE.txt": "/weather-haiku/static/js/2.afe039e6.chunk.js.LICENSE.txt"
+    "main.css": "/weathering-with-haiku/static/css/main.f390221d.chunk.css",
+    "main.js": "/weathering-with-haiku/static/js/main.6e9efb91.chunk.js",
+    "main.js.map": "/weathering-with-haiku/static/js/main.6e9efb91.chunk.js.map",
+    "runtime-main.js": "/weathering-with-haiku/static/js/runtime-main.2d00dacf.js",
+    "runtime-main.js.map": "/weathering-with-haiku/static/js/runtime-main.2d00dacf.js.map",
+    "static/js/2.afe039e6.chunk.js": "/weathering-with-haiku/static/js/2.afe039e6.chunk.js",
+    "static/js/2.afe039e6.chunk.js.map": "/weathering-with-haiku/static/js/2.afe039e6.chunk.js.map",
+    "index.html": "/weathering-with-haiku/index.html",
+    "precache-manifest.7f2abf858cca2533520000c9ca241730.js": "/weathering-with-haiku/precache-manifest.7f2abf858cca2533520000c9ca241730.js",
+    "service-worker.js": "/weathering-with-haiku/service-worker.js",
+    "static/css/main.f390221d.chunk.css.map": "/weathering-with-haiku/static/css/main.f390221d.chunk.css.map",
+    "static/js/2.afe039e6.chunk.js.LICENSE.txt": "/weathering-with-haiku/static/js/2.afe039e6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.108dbb45.js",
+    "static/js/runtime-main.2d00dacf.js",
     "static/js/2.afe039e6.chunk.js",
     "static/css/main.f390221d.chunk.css",
     "static/js/main.6e9efb91.chunk.js"
