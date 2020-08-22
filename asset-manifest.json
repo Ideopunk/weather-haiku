@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/weathering-with-haiku/static/css/main.dee53877.chunk.css",
+    "main.css": "/weathering-with-haiku/static/css/main.54dd5c80.chunk.css",
     "main.js": "/weathering-with-haiku/static/js/main.6e9efb91.chunk.js",
     "main.js.map": "/weathering-with-haiku/static/js/main.6e9efb91.chunk.js.map",
     "runtime-main.js": "/weathering-with-haiku/static/js/runtime-main.2d00dacf.js",
@@ -8,15 +8,15 @@
     "static/js/2.afe039e6.chunk.js": "/weathering-with-haiku/static/js/2.afe039e6.chunk.js",
     "static/js/2.afe039e6.chunk.js.map": "/weathering-with-haiku/static/js/2.afe039e6.chunk.js.map",
     "index.html": "/weathering-with-haiku/index.html",
-    "precache-manifest.ed1046aa6394a39f3f1c53a1470fddc8.js": "/weathering-with-haiku/precache-manifest.ed1046aa6394a39f3f1c53a1470fddc8.js",
+    "precache-manifest.a0baf0c16667e29834eea9760b5b62a9.js": "/weathering-with-haiku/precache-manifest.a0baf0c16667e29834eea9760b5b62a9.js",
     "service-worker.js": "/weathering-with-haiku/service-worker.js",
-    "static/css/main.dee53877.chunk.css.map": "/weathering-with-haiku/static/css/main.dee53877.chunk.css.map",
+    "static/css/main.54dd5c80.chunk.css.map": "/weathering-with-haiku/static/css/main.54dd5c80.chunk.css.map",
     "static/js/2.afe039e6.chunk.js.LICENSE.txt": "/weathering-with-haiku/static/js/2.afe039e6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2d00dacf.js",
     "static/js/2.afe039e6.chunk.js",
-    "static/css/main.dee53877.chunk.css",
+    "static/css/main.54dd5c80.chunk.css",
     "static/js/main.6e9efb91.chunk.js"
   ]
 }
