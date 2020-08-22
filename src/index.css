@@ -219,7 +219,7 @@ form {
 #locationbutton {
 	height: 40px;
 	width: 6ch;
-	text-align: start;
+	text-align: center;
 }
 
 #submit {
@@ -252,11 +252,12 @@ form {
 
 #weathercontainer {
 	display: flex;
+	flex: 1 1 70%;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 	width: 70%;
-	min-height: 260px;
+	min-height: 40px;
 	height: 80%;
 	padding: 20px;
 	box-sizing: border-box;
@@ -264,22 +265,22 @@ form {
 
 @media (max-width: 1023px) {
 	#weathercontainer {
-		padding: 10px;
-		height: 50%;
+		padding: 12px;
+		flex-basis: 50%;
 		width: 100%;
 	}
 }
 
 #haikucontainer {
-	padding: 10px;
-	width: 30%;
+	padding: 12px;
+	flex: 1 1 30%;
 	box-sizing: border-box;
 	border-left: 1px solid black;
 }
 
 @media (max-width: 1023px) {
 	#haikucontainer {
-		flex: 1;
+		flex-basis: 50%;
 		width: 100%;
 		border-left-width: 0px;
 		border-top: 1px solid grey;
