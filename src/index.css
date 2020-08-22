@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -19,22 +87,35 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
 body {
 	line-height: 1;
 }
-ol, ul {
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
 	content: none;
 }
 table {
@@ -69,8 +150,6 @@ input {
 input {
 	border: 1px solid black;
 }
-
-
 
 #root {
 	height: 100%;
@@ -131,7 +210,7 @@ form {
 
 .searchbutton {
 	background-color: rgb(97, 185, 226);
-	border: 2px solid rgb(175, 219, 240);
+	border: 1px solid rgb(175, 219, 240);
 	box-sizing: border-box;
 	border-radius: 3px;
 	font-size: 18px;
@@ -179,20 +258,20 @@ form {
 	width: 70%;
 	min-height: 260px;
 	height: 80%;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding: 20px;
 	box-sizing: border-box;
 }
 
 @media (max-width: 1023px) {
 	#weathercontainer {
+		padding: 10px;
 		height: 50%;
 		width: 100%;
 	}
 }
 
 #haikucontainer {
-	padding: 5px;
+	padding: 10px;
 	width: 30%;
 	box-sizing: border-box;
 	border-left: 1px solid black;
@@ -209,13 +288,19 @@ form {
 
 #location {
 	font-size: 25px;
-	flex:  1 1 15%;
+	flex: 1 1 15%;
 }
 
 #temp {
 	font-size: 25px;
 	flex: 1 1 15%;
 	text-align: end;
+}
+
+@media (max-width: 767px) {
+	#location, #temp {
+		font-size: 21px;
+	}
 }
 
 #emoji {
@@ -265,6 +350,7 @@ form {
 
 #haikutext {
 	line-height: 25px;
+	font-size: 14px;
 }
 
 @media (max-width: 767px) {
@@ -274,19 +360,17 @@ form {
 }
 
 #haikumetadata {
-	font-size: small;
+	font-size: 12px;
 	line-height: 20px;
 }
 
 @media (max-width: 767px) {
 	#haikumetadata {
 		font-size: xx-small;
-		width: 14ch;
+		width: 16ch;
 		line-height: 15px;
 	}
 }
-
-
 
 /* General */
 
