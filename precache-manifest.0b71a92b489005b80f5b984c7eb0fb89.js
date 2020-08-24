@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0d1326b3b0add4f35954a9010f78b29e",
+    "revision": "facc9ec55703c38404f7a9583ee82f88",
     "url": "/weathering-with-haiku/index.html"
   },
   {
-    "revision": "96f3291cb2fc7736e2a3",
-    "url": "/weathering-with-haiku/static/css/main.c4fd0dca.chunk.css"
+    "revision": "9d176c1fb591452908df",
+    "url": "/weathering-with-haiku/static/css/main.ce524baa.chunk.css"
   },
   {
     "revision": "bcee290dd986e65aebc3",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/weathering-with-haiku/static/js/2.afe039e6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "96f3291cb2fc7736e2a3",
+    "revision": "9d176c1fb591452908df",
     "url": "/weathering-with-haiku/static/js/main.6e9efb91.chunk.js"
   },
   {
