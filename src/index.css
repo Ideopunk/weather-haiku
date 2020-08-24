@@ -219,6 +219,8 @@ form {
 #locationbutton {
 	height: 40px;
 	width: 6ch;
+	padding-left: 3px;
+	padding-right: 3px;
 	text-align: center;
 }
 
@@ -267,10 +269,12 @@ form {
 @media (max-width: 1023px) {
 	#weathercontainer {
 		padding: 12px;
-		flex-basis: 55%;
+		flex-basis: 60%;
 		width: 100%;
 	}
 }
+
+
 
 #haikucontainer {
 	padding: 12px;
@@ -283,7 +287,7 @@ form {
 @media (max-width: 1023px) {
 	#haikucontainer {
 		padding: 12px;
-		flex-basis: 45%;
+		flex-basis: 40%;
 		width: 100%;
 		border-left-width: 0px;
 		border-top: 1px solid grey;
