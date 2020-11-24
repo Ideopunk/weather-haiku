@@ -2,8 +2,6 @@ import React from "react";
 import LoaderContainer from "./LoaderContainer";
 
 const Haiku = ({ haiku, loading }) => {
-	console.log(!haiku.date);
-	console.log(loading);
 
 	let status;
 	if (haiku.text.length > 0) {

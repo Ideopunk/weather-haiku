@@ -91,8 +91,8 @@ class App extends Component {
 				humidity: data.main.humidity,
 				windspeed: data.wind.speed,
 				emoji: emoji,
-				dataLoading: false,
 			},
+			dataLoading: false,
 		});
 
 		// haiku stuff
