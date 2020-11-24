@@ -24,12 +24,15 @@ class App extends Component {
 			date: "",
 		},
 		errormessage: "",
+		dataLoading: false,
+		haikuLoading: false,
 	};
 
 	handleSubmit = async (location) => {
+		this.setState({ dataLoading: true, haikuLoading: true });
 		let { city, country, lat, long } = location;
-		console.log('handlesubmit')
-		console.log(location)
+		console.log("handlesubmit");
+		console.log(location);
 		// get the value from the object
 		location = Object.values(location);
 
@@ -88,6 +91,7 @@ class App extends Component {
 				humidity: data.main.humidity,
 				windspeed: data.wind.speed,
 				emoji: emoji,
+				dataLoading: false,
 			},
 		});
 
@@ -144,10 +148,7 @@ class App extends Component {
 	async getHaiku(haikukey) {
 		let haikusubjectlist = WEATHER_KEYS[haikukey];
 		haikusubjectlist = haikusubjectlist.subjects;
-		let haikusubject =
-			haikusubjectlist[
-				Math.floor(Math.random() * haikusubjectlist.length)
-			];
+		let haikusubject = haikusubjectlist[Math.floor(Math.random() * haikusubjectlist.length)];
 
 		let webpage;
 		try {
@@ -198,11 +199,12 @@ class App extends Component {
 				author: haikuauthor,
 				date: haikudate,
 			},
+			haikuLoading: false,
 		});
 	}
 
 	render() {
-		const { weatherData, units, haiku, errormessage } = this.state;
+		const { weatherData, units, haiku, errormessage, dataLoading, haikuLoading } = this.state;
 		return (
 			<div className="App">
 				<div id="searchcontainer">
@@ -213,22 +215,19 @@ class App extends Component {
 						id="locationbutton"
 						value="Here"
 					/>
-					<Searchbar
-						errormessage={errormessage}
-						handleSubmit={this.handleSubmit}
-					/>
+					<Searchbar errormessage={errormessage} handleSubmit={this.handleSubmit} />
 				</div>
 				<div id="displaycontainer">
 					<Display
 						scaleSwitch={this.scaleSwitch}
 						units={units}
 						weatherData={weatherData}
+						loading={dataLoading}
 					/>
-					<Haiku haiku={haiku} />
+					<Haiku haiku={haiku} loading={haikuLoading} />
 				</div>
 				<div id="credit">
-					Background image via{" "}
-					<a href="https://www.reddit.com/user/Biode/">u/Biode</a>
+					Background image via <a href="https://www.reddit.com/user/Biode/">u/Biode</a>
 				</div>
 			</div>
 		);

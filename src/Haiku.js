@@ -1,25 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
+import LoaderContainer from "./LoaderContainer";
 
-class Haiku extends Component {
-	render() {
-		const { haiku } = this.props;
+const Haiku = ({ haiku, loading }) => {
+	console.log(!haiku.date);
+	console.log(loading);
 
-		let status
-		if (haiku.text.length > 0) {
-			status = "reveal"
-		} else {
-			status = "hide"
-		}
+	let status;
+	if (haiku.text.length > 0) {
+		status = "reveal";
+	} else {
+		status = "hide";
+	}
 
-		let haikulines = haiku.text.map((line, index) => (
-			<p key={index}>{line}</p>
-		));
-		return (
-			<div className="contentcontainer" id="haikucontainer">
-				<div className={status} id='bonushaiku'>
+	let haikulines = haiku.text.map((line, index) => <p key={index}>{line}</p>);
+
+	return (
+		<div className="contentcontainer" id="haikucontainer">
+			{loading ? (
+				<LoaderContainer />
+			) : haiku.text.length ? (
+				<div className={status} id="bonushaiku">
 					<div id="haikutext">{haikulines}</div>
 					<div id="haikumetadata">
-						<p id="haikuauthoranddate">{haiku.author}, {haiku.date}</p>
+						<p id="haikuauthoranddate">
+							{haiku.author}, {haiku.date}
+						</p>
 						<p>
 							<i>
 								via the{" "}
@@ -30,9 +35,11 @@ class Haiku extends Component {
 						</p>
 					</div>
 				</div>
-			</div>
-		);
-	}
-}
+			) : (
+				""
+			)}
+		</div>
+	);
+};
 
 export default Haiku;
